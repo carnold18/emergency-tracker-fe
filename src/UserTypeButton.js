@@ -4,7 +4,7 @@ class UserTypeButton extends Component {
 
     submitAdminRequest = () => {
         console.log('Request Submitted')
-        // fetch("http://localhost:3000/users/"+this.state.currentUser.id, {
+        // fetch("https://emergency-tracker.herokuapp.com/users/"+this.state.currentUser.id, {
         //     method: "PATCH",
         //     body: JSON.stringify({
         //         user_type: 1

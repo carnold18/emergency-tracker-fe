@@ -26,7 +26,7 @@ class App extends Component {
   fetchData(){
     console.log("2")
     return Promise.all([
-      fetch("http://localhost:3000/profile", {
+      fetch("https://emergency-tracker.herokuapp.com/profile", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${localStorage.token}`
@@ -41,7 +41,7 @@ class App extends Component {
           }
       }),
 
-      fetch("http://localhost:3000/zones", {
+      fetch("https://emergency-tracker.herokuapp.com/zones", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${localStorage.token}`
@@ -71,7 +71,7 @@ class App extends Component {
     // console.log(this.state.password)
     // console.log("3")
     
-    fetch("http://localhost:3000/login", {
+    fetch("https://emergency-tracker.herokuapp.com/login", {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,
@@ -115,7 +115,7 @@ class App extends Component {
 
   changeStatus0 = () => {
     // console.log(this.state.currentUser.id)
-    fetch("http://localhost:3000/users/"+this.state.currentUser.id, {
+    fetch("https://emergency-tracker.herokuapp.com/users/"+this.state.currentUser.id, {
       method: "PATCH",
       body: JSON.stringify({
         status: 0
@@ -135,7 +135,7 @@ class App extends Component {
   }
 
   changeStatus1 = () => {
-    fetch("http://localhost:3000/users/"+this.state.currentUser.id, {
+    fetch("https://emergency-tracker.herokuapp.com/users/"+this.state.currentUser.id, {
       method: "PATCH",
       body: JSON.stringify({
         status: 1
@@ -155,7 +155,7 @@ class App extends Component {
   }
 
   changeStatus2 = () => {
-    fetch("http://localhost:3000/users/"+this.state.currentUser.id, {
+    fetch("https://emergency-tracker.herokuapp.com/users/"+this.state.currentUser.id, {
       method: "PATCH",
       body: JSON.stringify({
         status: 2

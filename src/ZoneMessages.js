@@ -12,7 +12,7 @@ class ZoneMessages extends Component {
 
     componentDidMount() {
 
-        fetch("http://localhost:3000/posts", {
+        fetch("https://emergency-tracker.herokuapp.com/posts", {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${localStorage.token}`

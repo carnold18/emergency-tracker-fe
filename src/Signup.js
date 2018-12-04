@@ -63,7 +63,7 @@ class Signup extends Component {
 
         console.log(zone)
 
-        fetch("http://localhost:3000/users", {
+        fetch("https://emergency-tracker.herokuapp.com/users", {
           method: "POST",
           body: JSON.stringify({
             email: this.state.email,

@@ -76,7 +76,7 @@ class AdminContainer extends Component {
     createUserZone = () => {
         console.log(this.props.currentUser.id)
         console.log(this.state.userZones[0].id)
-        fetch("http://localhost:3000/user_zones", {
+        fetch("https://emergency-tracker.herokuapp.com/user_zones", {
                 method: "POST",
                 body: JSON.stringify({
                     user_id: this.props.currentUser.id,
@@ -102,7 +102,7 @@ class AdminContainer extends Component {
 
         console.log(`Current Zone List:`, currentZones)
 
-            fetch("http://localhost:3000/zoneUsers", {
+            fetch("https://emergency-tracker.herokuapp.com/zoneUsers", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
