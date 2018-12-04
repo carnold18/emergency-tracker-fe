@@ -5,6 +5,8 @@ import UserContainer from './UserContainer';
 import AdminContainer from './AdminContainer';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Signup from './Signup';
+const dotenv = require('dotenv');
+dotenv.load();
 
 class App extends Component {
 
