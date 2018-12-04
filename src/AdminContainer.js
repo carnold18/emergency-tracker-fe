@@ -63,8 +63,6 @@ class AdminContainer extends Component {
         // console.log(`Zone selected:`, e.target.name)
         // console.log(this.state.userZones)
 
-         await this.loadApiKey();
-
          await this.createUserZone();
             
          await this.getZoneUsers();
@@ -227,9 +225,15 @@ class AdminContainer extends Component {
         console.log(`Status 2 %:`, this.state.twoPerc)
 
     }
+
+    loadApiKey = () => {
+        dotenv.load();
+    }
     
 
     render() {
+
+        this.loadApiKey();
         // console.log(this.state.zipCodes)
         console.log(`UserZones:`, this.state.userZones)
         console.log(`ZoneUsers:`, this.state.zoneUsers)
@@ -237,7 +241,7 @@ class AdminContainer extends Component {
         // console.log(this.props.currentUser.user_type)
         // console.log(this.props.currentUser.zone_id)
         console.log(GEO_API_KEY)
-        console.log(dotenv)
+        // console.log(dotenv)
         console.log(process)
         console.log(process.env)
         console.log(process.env.production)

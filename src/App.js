@@ -175,9 +175,6 @@ class App extends Component {
     })
   }
 
-  loadApiKey = () => {
-    dotenv.config();
-  }
 
   render() {
       return (
@@ -193,7 +190,7 @@ class App extends Component {
                 <UserContainer {...props} logOut={this.logOut} currentUser={this.state.currentUser} changeStatus0={this.changeStatus0} changeStatus1={this.changeStatus1} changeStatus2={this.changeStatus2}/>
               }/>
               <Route path="/admin" render={(props) =>  
-                <AdminContainer {...props} logOut={this.logOut} allZones={this.state.allZones} currentUser={this.state.currentUser} loadApiKey={this.loadApiKey} /> 
+                <AdminContainer {...props} logOut={this.logOut} allZones={this.state.allZones} currentUser={this.state.currentUser} /> 
               }/>
               <Route path="/" render={ () => {
                 if(!!localStorage.token) {
