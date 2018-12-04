@@ -6,7 +6,7 @@ import NavBar from './NavBar';
 import MessagePost from './MessagePost';
 import StatsChart from './StatsChart';
 // import { GEO_API_KEY } from "./ApiKey";
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 // import config from './config.js';
 
 class AdminContainer extends Component {
@@ -226,14 +226,7 @@ class AdminContainer extends Component {
 
     }
 
-    // loadApiKey = () => {
-    //     dotenv.load();
-    // }
-    
-
     render() {
-
-        this.loadApiKey();
         // console.log(this.state.zipCodes)
         console.log(`UserZones:`, this.state.userZones)
         console.log(`ZoneUsers:`, this.state.zoneUsers)
