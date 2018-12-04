@@ -1,0 +1,1 @@
+export const GEO_API_KEY = process.env.GEO_API_KEY
