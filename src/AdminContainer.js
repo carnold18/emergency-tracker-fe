@@ -236,7 +236,7 @@ class AdminContainer extends Component {
         let s3 = new aws.S3({
             accessKey: process.env.GEO_API_KEY
         }) 
-        console.log(config)
+        console.log(process.env)
         console.log(s3)
         console.log(s3.accessKey)
         const API_KEY = s3.accessKey
