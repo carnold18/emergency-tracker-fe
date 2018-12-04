@@ -5,7 +5,7 @@ import ZipCodeSelectorNew from './ZipCodeSelectorNew';
 import NavBar from './NavBar';
 import MessagePost from './MessagePost';
 import StatsChart from './StatsChart';
-import config from './config.js';
+// import config from './config.js';
 
 class AdminContainer extends Component {
 
