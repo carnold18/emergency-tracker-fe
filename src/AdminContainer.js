@@ -5,9 +5,9 @@ import ZipCodeSelectorNew from './ZipCodeSelectorNew';
 import NavBar from './NavBar';
 import MessagePost from './MessagePost';
 import StatsChart from './StatsChart';
+import { GEO_API_KEY } from "./ApiKey";
 // import config from './config.js';
 const aws = require('aws-sdk');
-import { GEO_API_KEY } from "./ApiKey"
 
 class AdminContainer extends Component {
 
@@ -237,6 +237,7 @@ class AdminContainer extends Component {
         let s3 = new aws.S3({
             accessKey: process.env.GEO_API_KEY
         }) 
+        console.log(GEO_API_KEY)
         console.log(process.env)
         console.log(s3)
         console.log(s3.accessKey)
