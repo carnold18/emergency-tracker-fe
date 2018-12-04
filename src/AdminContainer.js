@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import Map from './Map';
-// import ZipCodeSelector from './ZipCodeSelector';
 import ZipCodeSelectorNew from './ZipCodeSelectorNew';
 import NavBar from './NavBar';
 import MessagePost from './MessagePost';
 import StatsChart from './StatsChart';
-// import { GEO_API_KEY } from "./ApiKey";
-// import dotenv from 'dotenv';
+import GEO_API_KEY from "./ApiKey";
 // import config from './config.js';
 
 class AdminContainer extends Component {
@@ -233,9 +231,7 @@ class AdminContainer extends Component {
         // console.log(this.props.currentUser.id)
         // console.log(this.props.currentUser.user_type)
         // console.log(this.props.currentUser.zone_id)
-        // console.log(GEO_API_KEY)
-        // console.log(dotenv)
-        console.log(process)
+        console.log(GEO_API_KEY)
         console.log(process.env.REACT_APP_GEO_API_KEY)
         const API_KEY = process.env.REACT_APP_GEO_API_KEY
         console.log(API_KEY)
