@@ -22,4 +22,5 @@ yarn-error.log*
 
 config.js
 
+#api keys
 .env

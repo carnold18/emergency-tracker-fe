@@ -226,9 +226,9 @@ class AdminContainer extends Component {
 
     }
 
-    loadApiKey = () => {
-        dotenv.load();
-    }
+    // loadApiKey = () => {
+    //     dotenv.load();
+    // }
     
 
     render() {
@@ -243,9 +243,8 @@ class AdminContainer extends Component {
         // console.log(GEO_API_KEY)
         // console.log(dotenv)
         console.log(process)
-        console.log(process.env)
-        console.log(process.env.production)
-        const API_KEY = process.env.GEO_API_KEY
+        console.log(process.env.REACT_APP_GEO_API_KEY)
+        const API_KEY = process.env.REACT_APP_GEO_API_KEY
         console.log(API_KEY)
         const URL = 'https://maps.googleapis.com/maps/api/js?key='+API_KEY+'&v=3.exp&libraries=geometry,drawing,places'
 
