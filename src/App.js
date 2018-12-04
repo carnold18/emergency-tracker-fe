@@ -5,7 +5,7 @@ import UserContainer from './UserContainer';
 import AdminContainer from './AdminContainer';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Signup from './Signup';
-require('dotenv').config();
+import dotenv from 'dotenv';
 
 class App extends Component {
 
@@ -175,6 +175,10 @@ class App extends Component {
     })
   }
 
+  loadApiKey = () => {
+    dotenv.config();
+  }
+
   render() {
       return (
         <div className="App">
@@ -189,7 +193,7 @@ class App extends Component {
                 <UserContainer {...props} logOut={this.logOut} currentUser={this.state.currentUser} changeStatus0={this.changeStatus0} changeStatus1={this.changeStatus1} changeStatus2={this.changeStatus2}/>
               }/>
               <Route path="/admin" render={(props) =>  
-                <AdminContainer {...props} logOut={this.logOut} allZones={this.state.allZones} currentUser={this.state.currentUser}/> 
+                <AdminContainer {...props} logOut={this.logOut} allZones={this.state.allZones} currentUser={this.state.currentUser} loadApiKey={this.loadApiKey} /> 
               }/>
               <Route path="/" render={ () => {
                 if(!!localStorage.token) {

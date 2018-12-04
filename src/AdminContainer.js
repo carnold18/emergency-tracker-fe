@@ -6,7 +6,7 @@ import NavBar from './NavBar';
 import MessagePost from './MessagePost';
 import StatsChart from './StatsChart';
 import { GEO_API_KEY } from "./ApiKey";
-const dotenv = require('dotenv').config();
+import dotenv from 'dotenv';
 // import config from './config.js';
 
 class AdminContainer extends Component {
@@ -63,9 +63,11 @@ class AdminContainer extends Component {
         // console.log(`Zone selected:`, e.target.name)
         // console.log(this.state.userZones)
 
-         await this.createUserZone()
+         await this.loadApiKey();
+
+         await this.createUserZone();
             
-         await this.getZoneUsers()
+         await this.getZoneUsers();
         // this.props.getZoneUsers(selectedZone)
     }
 
