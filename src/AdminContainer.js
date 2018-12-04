@@ -6,6 +6,7 @@ import NavBar from './NavBar';
 import MessagePost from './MessagePost';
 import StatsChart from './StatsChart';
 // import config from './config.js';
+const aws = require('aws-sdk');
 
 class AdminContainer extends Component {
 
@@ -232,7 +233,9 @@ class AdminContainer extends Component {
         // console.log(this.props.currentUser.id)
         // console.log(this.props.currentUser.user_type)
         // console.log(this.props.currentUser.zone_id)
-        const API_KEY = process.env.GEO_API_KEY
+        let API_KEY = new aws.S3({
+            GEO_API_KEY: process.env.GEO_API_KEY
+        }) 
         console.log(API_KEY)
         const URL = 'https://maps.googleapis.com/maps/api/js?key='+API_KEY+'&v=3.exp&libraries=geometry,drawing,places'
 
