@@ -7,8 +7,7 @@ import MessagePost from './MessagePost';
 import StatsChart from './StatsChart';
 // import config from './config.js';
 const aws = require('aws-sdk');
-const dotenv = require('dotenv');
-dotenv.load();
+require('dotenv').config();
 
 class AdminContainer extends Component {
 
