@@ -4,7 +4,7 @@ import ZipCodeSelectorNew from './ZipCodeSelectorNew';
 import NavBar from './NavBar';
 import MessagePost from './MessagePost';
 import StatsChart from './StatsChart';
-import { GEO_API_KEY } from "./ApiKey";
+import { GEO_API_KEY } from "./Constants";
 // import config from './config.js';
 
 class AdminContainer extends Component {
