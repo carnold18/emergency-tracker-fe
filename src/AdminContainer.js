@@ -4,7 +4,7 @@ import ZipCodeSelectorNew from './ZipCodeSelectorNew';
 import NavBar from './NavBar';
 import MessagePost from './MessagePost';
 import StatsChart from './StatsChart';
-import { GEO_API_KEY } from "./Constants";
+// import { GEO_API_KEY } from "./Constants";
 // import config from './config.js';
 
 class AdminContainer extends Component {
@@ -231,10 +231,10 @@ class AdminContainer extends Component {
         // console.log(this.props.currentUser.id)
         // console.log(this.props.currentUser.user_type)
         // console.log(this.props.currentUser.zone_id)
-        console.log(GEO_API_KEY)
-        console.log(`${process.env.REACT_APP_GEO_API_KEY}`)
+        // console.log(GEO_API_KEY)
+        // console.log(`${process.env.REACT_APP_GEO_API_KEY}`)
         const API_KEY =`${process.env.REACT_APP_GEO_API_KEY}`
-        console.log(API_KEY)
+        // console.log(API_KEY)
         const URL = 'https://maps.googleapis.com/maps/api/js?key='+API_KEY+'&v=3.exp&libraries=geometry,drawing,places'
 
         return (
