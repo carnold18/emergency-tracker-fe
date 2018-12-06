@@ -32,7 +32,7 @@ class Signup extends Component {
         event.preventDefault();
 
         const address = this.state.house_number +this.state.street_name +this.state.street_type +this.state.city+this.state.state +this.state.zip_code
-        const API_KEY = process.env.GEO_API_KEY
+        const API_KEY =`${process.env.REACT_APP_GEO_API_KEY}`
         const URL = 'https://maps.googleapis.com/maps/api/geocode/json?address='+this.state.house_number+'+'+this.state.street_name+'+'+this.state.street_type+',+'+this.state.city+',+'+this.state.state+'&key='+API_KEY
         
         console.log(address)
