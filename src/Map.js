@@ -66,7 +66,7 @@ class Map extends Component {
                 defaultZoom={13}
                 center={{ lat: this.state.allLatsAvg, lng: this.state.allLngAvg }}
             >
-                {   this.props.zoneUsers.flat() ? (
+                {   this.props.zoneUsers ? (
                     this.props.zoneUsers.flat().map(user => {
                         switch(user.status) {
                             case 0: 
