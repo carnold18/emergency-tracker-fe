@@ -56,7 +56,11 @@ class Map extends Component {
         const green = "http://maps.google.com/mapfiles/ms/icons/green.png"
         const yellow = "http://maps.google.com/mapfiles/ms/icons/yellow.png"
         const red = "http://maps.google.com/mapfiles/ms/icons/red.png"
-        const users = this.props.zoneUsers.flat()
+        const users = this.props.zoneUsers
+        const flattenUsers = () => {
+            console.log("flattenUsers", users.flat())
+            return users.flat()
+        }
 
     // can use .reduce to calculate the average lat and lng of of the user pins and the set this to 
     // the default center lat and lng below
@@ -68,8 +72,7 @@ class Map extends Component {
                 center={{ lat: this.state.allLatsAvg, lng: this.state.allLngAvg }}
             >
                 { 
-                    (function() {
-                    return users.map(function(user) {
+                    flattenUsers().map(function(user) {
                         switch(user.status) {
                             case 0: 
                             return <Marker position={{ lat: user.lat, lng: user.lng }} 
@@ -80,19 +83,20 @@ class Map extends Component {
                             case 1: 
                             return <Marker position={{ lat: user.lat, lng: user.lng }} 
                                                     opacity={0.7} 
-                                                    icon={{ url: yellow }} /> 
+                                                    icon={{ url: yellow }} 
+                                                    /> 
                             break;
                             case 2: 
                             return <Marker position={{ lat: user.lat, lng: user.lng }} 
                                                     opacity={0.7} 
-                                                    icon={{ url: red }} /> 
+                                                    icon={{ url: red }} 
+                                                    /> 
                             break;
                             default: 
                             return null
                             break;
                         }
                     })
-                    })()
                 } 
             </GoogleMap><br />
             <button type="button" className="button small" onClick={ this.createNewGeoLatCenter } style={{marginLeft:'200px'}}>Recenter Map</button>
@@ -142,3 +146,29 @@ export default withScriptjs(withGoogleMap(Map));
 //             break;
 //         }
 //     }})()
+
+// (function() {
+//     return users.map(function(user) {
+//         switch(user.status) {
+//             case 0: 
+//             return <Marker position={{ lat: user.lat, lng: user.lng }} 
+//                                     opacity={0.5} 
+//                                     icon={{ url: green }}  
+//                                     /> 
+//             break;
+//             case 1: 
+//             return <Marker position={{ lat: user.lat, lng: user.lng }} 
+//                                     opacity={0.7} 
+//                                     icon={{ url: yellow }} /> 
+//             break;
+//             case 2: 
+//             return <Marker position={{ lat: user.lat, lng: user.lng }} 
+//                                     opacity={0.7} 
+//                                     icon={{ url: red }} /> 
+//             break;
+//             default: 
+//             return null
+//             break;
+//         }
+//     })
+//     })()
