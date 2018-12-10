@@ -67,7 +67,7 @@ class Map extends Component {
                 defaultZoom={13}
                 center={{ lat: this.state.allLatsAvg, lng: this.state.allLngAvg }}
             >
-                {
+                {   
                     users.map(user => {
                         switch(user.status) {
                             case 0: 
@@ -91,7 +91,6 @@ class Map extends Component {
                             break;
                         }
                     })
-
                 } 
             </GoogleMap><br />
             <button type="button" className="button small" onClick={ this.createNewGeoLatCenter } style={{marginLeft:'200px'}}>Recenter Map</button>
@@ -116,3 +115,28 @@ export default withScriptjs(withGoogleMap(Map));
 //                                 icon={{ url: red }} /> 
 //     )
 // })
+
+// (function(users) {
+//     for (var i in users) {
+//         switch(users[i].status) {
+//             case 0: 
+//             return <Marker position={{ lat: users[i].lat, lng: users[i].lng }} 
+//                                     opacity={0.5} 
+//                                     icon={{ url: green }}  
+//                                     /> 
+//             break;
+//             case 1: 
+//             return <Marker position={{ lat: users[i].lat, lng: users[i].lng }} 
+//                                     opacity={0.7} 
+//                                     icon={{ url: yellow }} /> 
+//             break;
+//             case 2: 
+//             return <Marker position={{ lat: users[i].lat, lng: users[i].lng }} 
+//                                     opacity={0.7} 
+//                                     icon={{ url: red }} /> 
+//             break;
+//             default: 
+//             return null
+//             break;
+//         }
+//     }})()
