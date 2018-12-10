@@ -67,8 +67,9 @@ class Map extends Component {
                 defaultZoom={13}
                 center={{ lat: this.state.allLatsAvg, lng: this.state.allLngAvg }}
             >
-                {   
-                    users.map(user => {
+                { 
+                    (function() {
+                    return users.map(function(user) {
                         switch(user.status) {
                             case 0: 
                             return <Marker position={{ lat: user.lat, lng: user.lng }} 
@@ -91,6 +92,7 @@ class Map extends Component {
                             break;
                         }
                     })
+                    })()
                 } 
             </GoogleMap><br />
             <button type="button" className="button small" onClick={ this.createNewGeoLatCenter } style={{marginLeft:'200px'}}>Recenter Map</button>
