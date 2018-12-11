@@ -57,7 +57,6 @@ class Map extends Component {
         const yellow = "http://maps.google.com/mapfiles/ms/icons/yellow.png"
         const red = "http://maps.google.com/mapfiles/ms/icons/red.png"
         const users = this.props.zoneUsers
-        const userz = this.props.zoneUsers.flat()
         const flattenUsers = () => {
             console.log("flattenUsers", users.flat())
             return users.flat()
@@ -88,8 +87,6 @@ class Map extends Component {
                 break;
             }
         }
-
-
         
 
     // can use .reduce to calculate the average lat and lng of of the user pins and the set this to 
@@ -116,9 +113,6 @@ class Map extends Component {
 }
 
 export default withScriptjs(withGoogleMap(Map));
-
-
-
 
 // users.map(user => {
 //     return user.status === 1 && user.status !== 0 ? (
