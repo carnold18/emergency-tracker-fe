@@ -64,11 +64,15 @@ class Map extends Component {
 
     // can use .reduce to calculate the average lat and lng of of the user pins and the set this to 
     // the default center lat and lng below
+
+    // placed all verisons of the following function in commented code below the export default
+    // some of them work. some of them do not. BEWARE. --- trial and error
+
         return (
             <div>
             <GoogleMap 
                 id="map"
-                defaultZoom={13}
+                defaultZoom={13} 
                 center={{ lat: this.state.allLatsAvg, lng: this.state.allLngAvg }}
             >
                 { 
