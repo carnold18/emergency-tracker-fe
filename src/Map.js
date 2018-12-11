@@ -56,11 +56,18 @@ class Map extends Component {
         const green = "http://maps.google.com/mapfiles/ms/icons/green.png"
         const yellow = "http://maps.google.com/mapfiles/ms/icons/yellow.png"
         const red = "http://maps.google.com/mapfiles/ms/icons/red.png"
+        
         const users = this.props.zoneUsers
+        const flattenedUsers = []
         const flattenUsers = () => {
-            console.log("flattenUsers", users.flat())
-            return users.flat()
+            console.log("users", users)
+            for (var i = 0; i < users.length; ++i) {
+            for (var j = 0; j < users[i].length; ++j)
+              flattenedUsers.push(users[i][j]);
+            }
+            console.log("flattenedUsers", flattenedUsers)
         }
+        flattenUsers()
 
         const markerFunction = user => {
             switch(user.status) {
@@ -102,8 +109,8 @@ class Map extends Component {
                 defaultZoom={13} 
                 center={{ lat: this.state.allLatsAvg, lng: this.state.allLngAvg }}
             >
-                { 
-                    flattenUsers().map(markerFunction)
+                { flattenedUsers ? (
+                    flattenedUsers.map(markerFunction) ) : null
                 } 
             </GoogleMap><br />
             <button type="button" className="button small" onClick={ this.createNewGeoLatCenter } style={{marginLeft:'200px'}}>Recenter Map</button>
@@ -176,3 +183,7 @@ export default withScriptjs(withGoogleMap(Map));
 //         }
 //     })
 //     })()
+
+// var arrays = [["$6"], ["$12"], ["$25"], ["$25"], ["$18"], ["$22"], ["$10"]];
+// var merged = [].concat.apply([], arrays);
+// var merged = [].concat(...arrays);
