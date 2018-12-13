@@ -5,6 +5,7 @@ import UserContainer from './UserContainer';
 import AdminContainer from './AdminContainer';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Signup from './Signup';
+import Header from './Header';
 import dotenv from 'dotenv';
 
 class App extends Component {
@@ -181,10 +182,17 @@ class App extends Component {
         <div className="App">
             <Switch>
               <Route exact path="/login" render={() =>  
-                <LoginForm logIn={this.logIn} handleChange={this.handleChange} />
+                <div>
+                  <Header />< br/>
+                  <LoginForm logIn={this.logIn} handleChange={this.handleChange} />
+                </div>
+                
               }/>
-              <Route path="/signup" render={() =>  
-                <Signup logIn={this.logIn} signUp={this.signUp} handleChange={this.handleChange} />
+              <Route path="/signup" render={() =>
+                <div>
+                  <Signup logIn={this.logIn} signUp={this.signUp} handleChange={this.handleChange} />
+                </div>  
+                
               }/>
               <Route path="/user" render={(props) =>  
                 <UserContainer {...props} logOut={this.logOut} currentUser={this.state.currentUser} changeStatus0={this.changeStatus0} changeStatus1={this.changeStatus1} changeStatus2={this.changeStatus2}/>
