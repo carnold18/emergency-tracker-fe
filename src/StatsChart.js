@@ -6,49 +6,55 @@ class StatsChart extends Component {
     render() {
         console.log(this.props.selectedZones)
         return(
-            // <div>
-            //     <Chart 
-            //         chartType="Histogram"
-            //         width={'500px'}
-            //         height={'350px'}
-            //         loader={<div>Loading Chart</div>}
-            //         data={[
-            //             ["User Status", "Value"],
-            //             ["OK", "green"],
-            //             ["Distress", "yellow"],
-            //             ["Danger", "red"]
-            //         ]}
-            //     />
-            // </div>
-            <div id="stats-chart">
-                <br /><h3>Selected Zone(s):</h3>
-                { 
-                    this.props.selectedZones.map(zone => {
-                            return <div><p className="selected-zones" id='selected-zones'>{zone}</p></div>})
-                }
-                <br /><h3>Percentages:</h3>
-                <div className="table-wrapper">
+            <div className="chart">
+                <h3>Selected Zone(s):</h3>
                 {
-                this.props.selectedZones[0] ? (
-                    <table className="alt">
-                        {/* <tr>
-                            <td>Selected Zone Percentages</td>
-                        </tr> */}
-                        <tr>
-                            <td>{Math.round(this.props.zeroPerc)}% OK</td>
-                        </tr>
-                        <tr>
-                            <td>{Math.round(this.props.onePerc)}% Distress</td>
-                        </tr>
-                        <tr>
-                            <td>{Math.round(this.props.twoPerc)}% Danger</td>
-                        </tr>
-                    </table> ) : null
+                    this.props.selectedZones.map( zone => {
+                        return <p id="selected-zone">{zone}</p>
+                    })
                 }
-                </div>
+                <Chart
+                    width={'500px'}
+                    height={'360px'}
+                    chartType="PieChart"
+                    loader={<div>...Loading Chart...</div>}
+                    data={[
+                        ['Status', 'Percentage'],
+                        ['Ok', this.props.zeroPerc],
+                        ['Distress', this.props.onePerc],
+                        ['Danger', this.props.twoPerc],
+                    ]}
+                    options={{
+                        title: "Summary of Users' Statuses",
+                        // Just add this option
+                        is3D: true,
+                        slices: [
+                            {
+                            color: "green",
+                            opacity: 0.3
+                            },
+                            {
+                            color: "yellow",
+                            opacity: 0.3
+                            },
+                            {
+                            color: "red",
+                            offset: 0.2,
+                            opacity: 0.3
+                            },
+                        ],
+                        backgroundColor: "none",
+                        pieSliceTextStyle: { color: "black" },
+                        titleTextStyle: { fontSize: 18, fontName: "Raleway", bold: false }
+
+                    }}
+                    rootProps={{ 'data-testid': '2' }}
+                />
             </div>
         )
     }
 }
 
 export default StatsChart;
+
+

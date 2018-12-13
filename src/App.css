@@ -46,6 +46,10 @@ label.checkbox-item:hover {
   border-radius: .25;
 }
 
+.chart {
+  display: inline-block;
+}
+
 #div1 {
   display: inline-block;
   padding: 1rem;

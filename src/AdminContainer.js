@@ -330,11 +330,10 @@ class AdminContainer extends Component {
                                 containerElement={<div style={{ height: `400px` }} />}
                                 mapElement={<div style={{ height: `100%` }} />}
                                 /><br />
-                                <button type="button" className="button small" onClick={this.calculateStats} style={{marginLeft:'-200px'}} >Show Stats</button>
+                                <button type="button" className="button small" onClick={this.calculateStats} style={{marginLeft:'-200px'}} >Show Stats</button><br />
                                 { this.state.statsSelected ? (
                                     <StatsChart selectedZones={this.state.selectedZones} zeroPerc={this.state.zeroPerc} onePerc={this.state.onePerc} twoPerc={this.state.twoPerc}/>) : null
                                 }
-                                
                                 <MessagePost currentUser={this.props.currentUser} zipCodes={this.state.zipCodes} selectedZones={this.state.selectedZones} />
                             </div>
                         </span>
