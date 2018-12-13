@@ -7,12 +7,13 @@ class StatsChart extends Component {
         console.log(this.props.selectedZones)
         return(
             <div className="chart">
-                <h3>Selected Zone(s):</h3>
+                <h3 style={{"margin-top":"20px"}}>Selected Zone(s):</h3>
                 {
                     this.props.selectedZones.map( zone => {
                         return <p id="selected-zone">{zone}</p>
                     })
                 }
+                <div style={{"margin-left":"62px"}}>
                 <Chart
                     width={'500px'}
                     height={'360px'}
@@ -27,7 +28,7 @@ class StatsChart extends Component {
                     options={{
                         title: "Summary of Users' Statuses",
                         // Just add this option
-                        is3D: true,
+                        is3D: false,
                         slices: [
                             {
                             color: "green",
@@ -44,12 +45,13 @@ class StatsChart extends Component {
                             },
                         ],
                         backgroundColor: "none",
-                        pieSliceTextStyle: { color: "black" },
+                        pieSliceTextStyle: { color: "black", fontSize: 15},
                         titleTextStyle: { fontSize: 18, fontName: "Raleway", bold: false }
 
                     }}
                     rootProps={{ 'data-testid': '2' }}
                 />
+                </div>
             </div>
         )
     }

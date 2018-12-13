@@ -69,7 +69,7 @@ class MessagePost extends Component {
                 <br /><h4 className="align-center">Send notifications to users in selected zones:</h4>
                 <ul>{this.showZones}</ul>
                 <div className="login">
-                    <form onSubmit={e => this.generateZones(e)}>
+                    <form onSubmit={e => this.generateZones(e)} style={{"margin-top":"-15px"}}>
                         <input
                             type="text"
                             onChange={this.handleChange}
