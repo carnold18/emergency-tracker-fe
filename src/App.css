@@ -71,6 +71,10 @@ label.checkbox-item:hover {
   text-decoration: none;
 }
 
+.selected-zones {
+  display: inline;
+}
+
 .a {
   vertical-align: top;
   display: inline-block;

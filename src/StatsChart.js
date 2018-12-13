@@ -21,25 +21,30 @@ class StatsChart extends Component {
             //     />
             // </div>
             <div id="stats-chart">
-                <br /><h3>Selected Zone Percentages</h3>
-                { this.props.selectedZones.map(zone => {
-                            return <li id='selected-zones'>{zone}</li>})
+                <br /><h3>Selected Zone(s):</h3>
+                { 
+                    this.props.selectedZones.map(zone => {
+                            return <div><p className="selected-zones" id='selected-zones'>{zone}</p></div>})
                 }
+                <br /><h3>Percentages:</h3>
                 <div className="table-wrapper">
-                <table className="alt">
-                    {/* <tr>
-                        <td>Selected Zone Percentages</td>
-                    </tr> */}
-                    <tr>
-                        <td>{Math.round(this.props.zeroPerc)}% OK</td>
-                    </tr>
-                    <tr>
-                        <td>{Math.round(this.props.onePerc)}% Distress</td>
-                    </tr>
-                    <tr>
-                        <td>{Math.round(this.props.twoPerc)}% Danger</td>
-                    </tr>
-                </table>
+                {
+                this.props.selectedZones[0] ? (
+                    <table className="alt">
+                        {/* <tr>
+                            <td>Selected Zone Percentages</td>
+                        </tr> */}
+                        <tr>
+                            <td>{Math.round(this.props.zeroPerc)}% OK</td>
+                        </tr>
+                        <tr>
+                            <td>{Math.round(this.props.onePerc)}% Distress</td>
+                        </tr>
+                        <tr>
+                            <td>{Math.round(this.props.twoPerc)}% Danger</td>
+                        </tr>
+                    </table> ) : null
+                }
                 </div>
             </div>
         )
