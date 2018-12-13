@@ -235,10 +235,11 @@ class AdminContainer extends Component {
         }
 
         this.setState({
-            statusSum: sum
+            statusSum: this.state.zoneUsers.flat(Infinity).length
         })
 
-        console.log(sum)
+        console.log("status:", status)
+        console.log("sum", sum)
 
     }
     
