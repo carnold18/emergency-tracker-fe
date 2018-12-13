@@ -95,10 +95,11 @@ class AdminContainer extends Component {
             return zone.id
         });
         const id = this.state.userZones[0].id;
-        const currentUsers = this.state.zoneUsers.flat().map( user => {
+        const userList = this.state.zoneUsers.flat(Infinity);
+        const currentUsers = userList.map( user => {
             return user.id
         });
-        const userList = this.state.zoneUsers.flat();
+        
 
         console.log(`Current Zone List:`, currentZones)
 
@@ -115,6 +116,9 @@ class AdminContainer extends Component {
                 .then(response => response.json())
                 .then(users => {
                     // console.log(`Includes user?`, currentUsers.includes(users[0].id))
+                    console.log("currentUsers:", currentUsers)
+                    console.log("Before: this.state.zoneUsers", this.state.zoneUsers)
+
                     if (users.length > 0 && currentUsers.includes(users[0].id)) {
                         this.setState({
                             zoneUsers: userList.filter(userObj => !users.find(userObj2 => userObj.id === userObj2.id))
@@ -125,8 +129,71 @@ class AdminContainer extends Component {
                             zoneUsers: [users, ...this.state.zoneUsers]
                         })
                     }
+                    console.log("After: this.state.zoneUsers", this.state.zoneUsers)
                 })
     }
+
+    // getZoneUsers = () => {
+
+    //     const currentZones = this.state.userZones.map( zone => {
+    //         return zone.id
+    //     })
+
+    //     const id = this.state.userZones[0].id
+        
+    //     const flattenedUsers = []
+    //     const flattenUsers = () => {
+    //         // console.log("flattenedUsers", flattenedUsers)
+    //         for (let i = 0; i < this.state.zoneUsers.length; ++i) {
+    //             for (let j = 0; j < this.state.zoneUsers[i].length; ++j) (
+    //                 flattenedUsers.push(this.state.zoneUsers[i][j])
+    //             )
+    //         }
+    //         return flattenedUsers
+    //     }
+
+    //     console.log("flattenUsers():", flattenUsers())
+    //     console.log("flattenedUsers:", flattenedUsers)
+
+    //     const userList = flattenUsers()
+    //     const currentUsers = flattenUsers().map( user => { return user.id })
+
+    //     console.log(`Current Zone List:`, currentZones)
+
+    //         fetch("https://emergency-tracker.herokuapp.com/zoneUsers", {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //                 Authorization: `Bearer ${localStorage.token}`
+    //             },
+    //             body: JSON.stringify({
+    //                 id: id
+    //             })
+    //         })
+    //             .then(response => response.json())
+    //             .then(users => {
+    //                 // console.log("users", users)
+
+    //                 console.log(`Includes user?`, currentUsers.includes(users[0].id))
+    //                 console.log("users.length", users.length)
+    //                 console.log("currentUsers:", currentUsers)
+    //                 console.log("this.state.zoneUsers Before:", this.state.zoneUsers)
+
+    //                 if (users.length > 0 && currentUsers.includes(users[0].id)) {
+    //                     this.setState({
+    //                         zoneUsers: userList.filter(userObj => !users.find(userObj2 => userObj.id === userObj2.id))
+    //                     })
+    //                 }
+    //                 else {
+    //                     this.setState({
+    //                         zoneUsers: [users, ...this.state.zoneUsers]
+    //                     })
+    //                 }
+
+    //                 console.log("this.state.zoneUsers After:", this.state.zoneUsers)
+
+    //             })
+    // }
 
     checkBoxDetails = async () => {
         // console.log(this.props.allZones)
@@ -159,8 +226,8 @@ class AdminContainer extends Component {
         let status = [];
         let sum = 0;
 
-        for (let i = 0; i < this.state.zoneUsers.flat().length; i++) {
-            status.push(this.state.zoneUsers.flat()[i].status)
+        for (let i = 0; i < this.state.zoneUsers.flat(Infinity).length; i++) {
+            status.push(this.state.zoneUsers.flat(Infinity)[i].status)
         }
         
         for (let k = 0; k < status.length; k++) {
@@ -181,12 +248,12 @@ class AdminContainer extends Component {
         let one_count = 0;
         let zero_count = 0;
 
-        for (let i = 0; i < this.state.zoneUsers.flat().length; i++) {
-            if (this.state.zoneUsers.flat()[i].status === 2) {
+        for (let i = 0; i < this.state.zoneUsers.flat(Infinity).length; i++) {
+            if (this.state.zoneUsers.flat(Infinity)[i].status === 2) {
                 two_count++;
-            } else if (this.state.zoneUsers.flat()[i].status === 1) {
+            } else if (this.state.zoneUsers.flat(Infinity)[i].status === 1) {
                 one_count++;
-            } else if (this.state.zoneUsers.flat()[i].status === 0) {
+            } else if (this.state.zoneUsers.flat(Infinity)[i].status === 0) {
                 zero_count++;
             } else return null;
         }

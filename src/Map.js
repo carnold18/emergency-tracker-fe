@@ -56,70 +56,116 @@ class Map extends Component {
         const green = "http://maps.google.com/mapfiles/ms/icons/green.png"
         const yellow = "http://maps.google.com/mapfiles/ms/icons/yellow.png"
         const red = "http://maps.google.com/mapfiles/ms/icons/red.png"
-        
-        const users = this.props.zoneUsers
-        const flattenedUsers = []
-        const flattenUsers = () => {
-            console.log("users", users)
-            for (var i = 0; i < users.length; ++i) {
-            for (var j = 0; j < users[i].length; ++j)
-              flattenedUsers.push(users[i][j]);
-            }
-            console.log("flattenedUsers", flattenedUsers)
-        }
-        flattenUsers()
-
-        const markerFunction = user => {
-            switch(user.status) {
-                case 0: 
-                return <Marker position={{ lat: user.lat, lng: user.lng }} 
-                                        opacity={0.5} 
-                                        icon={{ url: green }}  
-                                        /> 
-                break;
-                case 1: 
-                return <Marker position={{ lat: user.lat, lng: user.lng }} 
-                                        opacity={0.7} 
-                                        icon={{ url: yellow }} 
-                                        /> 
-                break;
-                case 2: 
-                return <Marker position={{ lat: user.lat, lng: user.lng }} 
-                                        opacity={0.7} 
-                                        icon={{ url: red }} 
-                                        /> 
-                break;
-                default: 
-                return null
-                break;
-            }
-        }
-        
+        const users = this.props.zoneUsers.flat(Infinity)
 
     // can use .reduce to calculate the average lat and lng of of the user pins and the set this to 
     // the default center lat and lng below
-
-    // placed all verisons of the following function in commented code below the export default
-    // some of them work. some of them do not. BEWARE. --- trial and error
-
         return (
             <div>
             <GoogleMap 
                 id="map"
-                defaultZoom={13} 
+                defaultZoom={13}
                 center={{ lat: this.state.allLatsAvg, lng: this.state.allLngAvg }}
             >
-                { flattenedUsers ? (
-                    flattenedUsers.map(markerFunction) ) : null
+                {  users.map(user => {
+                        switch(user.status) {
+                            case 0: 
+                            return <Marker position={{ lat: user.lat, lng: user.lng }} 
+                                                    opacity={0.5} 
+                                                    icon={{ url: green }}  
+                                                    /> 
+                            break;
+                            case 1: 
+                            return <Marker position={{ lat: user.lat, lng: user.lng }} 
+                                                    opacity={0.7} 
+                                                    icon={{ url: yellow }} /> 
+                            break;
+                            case 2: 
+                            return <Marker position={{ lat: user.lat, lng: user.lng }} 
+                                                    opacity={0.7} 
+                                                    icon={{ url: red }} /> 
+                            break;
+                            default: 
+                            return null
+                            break;
+                        }
+                    })
                 } 
             </GoogleMap><br />
             <button type="button" className="button small" onClick={ this.createNewGeoLatCenter } style={{marginLeft:'200px'}}>Recenter Map</button>
             </div>
         )
     }
+
+    // render() {
+
+    //     // These are marker icons from google's database.
+    //     const green = "http://maps.google.com/mapfiles/ms/icons/green.png"
+    //     const yellow = "http://maps.google.com/mapfiles/ms/icons/yellow.png"
+    //     const red = "http://maps.google.com/mapfiles/ms/icons/red.png"
+        
+    //     // Creating an array of all selected users to display on the map.
+    //     const flattenedUsers = []
+    //     const flattenUsers = () => {
+    //         console.log("this.props.zoneUsers", this.props.zoneUsers)
+    //         for (let i = 0; i < this.props.zoneUsers.length; ++i) {
+    //             for (let j = 0; j < this.props.zoneUsers[i].length; ++j)
+    //                 flattenedUsers.push(this.props.zoneUsers[i][j]);
+    //             }
+    //         console.log("flattenedUsers", flattenedUsers)
+    //         return flattenedUsers
+    //     }
+    //     flattenUsers()
+
+    //     // Creating markers associated with each user that was selected.
+    //     const markerFunction = user => {
+    //         switch(user.status) {
+    //             case 0: 
+    //             return <Marker position={{ lat: user.lat, lng: user.lng }} 
+    //                                     opacity={0.5} 
+    //                                     icon={{ url: green }}  
+    //                                     /> 
+    //             break;
+    //             case 1: 
+    //             return <Marker position={{ lat: user.lat, lng: user.lng }} 
+    //                                     opacity={0.7} 
+    //                                     icon={{ url: yellow }} 
+    //                                     /> 
+    //             break;
+    //             case 2: 
+    //             return <Marker position={{ lat: user.lat, lng: user.lng }} 
+    //                                     opacity={0.7} 
+    //                                     icon={{ url: red }} 
+    //                                     /> 
+    //             break;
+    //             default: 
+    //             return null
+    //             break;
+    //         }
+    //     }
+
+    //     return (
+    //         <div>
+    //         <GoogleMap 
+    //             id="map"
+    //             defaultZoom={13} 
+    //             center={{ lat: this.state.allLatsAvg, lng: this.state.allLngAvg }} >
+    //                 { flattenedUsers ? (
+    //                     flattenedUsers.map(markerFunction) ) : null
+    //                 }
+    //         </GoogleMap><br />
+    //         <button type="button" className="button small" onClick={ this.createNewGeoLatCenter } style={{marginLeft:'200px'}}>Recenter Map</button>
+    //         </div>
+    //     )
+    // }
 }
 
 export default withScriptjs(withGoogleMap(Map));
+
+
+
+// placed all verisons of the following function in commented code below the export default
+// some of them work. some of them do not. BEWARE. --- trial and error
 
 // users.map(user => {
 //     return user.status === 1 && user.status !== 0 ? (
