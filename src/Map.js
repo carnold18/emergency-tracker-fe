@@ -1,5 +1,6 @@
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 import React, { Component } from 'react';
+import info from './info-16.png';
 
 class Map extends Component {
 
@@ -86,7 +87,9 @@ class Map extends Component {
                                                     icon={{ url: red }} /> 
                             break;
                             default: 
-                            return null
+                            return <Marker position={{ lat: user.lat, lng: user.lng }} 
+                                                    opacity={0.7} 
+                                                    icon={{ url: info }} /> 
                             break;
                         }
                     })
