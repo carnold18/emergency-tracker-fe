@@ -1,4 +1,4 @@
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
+import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import React, { Component } from 'react';
 import info from './info-24.png';
 
@@ -8,8 +8,16 @@ class Map extends Component {
         super(props);
         this.state = {
             allLatsAvg: 29.7604,
-            allLngAvg: -95.3698
+            allLngAvg: -95.3698,
+            isOpen: false
         }
+    }
+
+    handleToggleOpen = () => {
+
+        this.setState({
+            isOpen: !this.state.isOpen
+        })
     }
 
     createNewGeoLatCenter = () => {
@@ -89,7 +97,21 @@ class Map extends Component {
                             default: 
                             return <Marker position={{ lat: user.lat, lng: user.lng }} 
                                                     opacity={1.0} 
-                                                    icon={{ url: info }} /> 
+                                                    icon={{ url: info }} 
+                                                    onClick={() => this.handleToggleOpen()} >
+                                                    {
+                                                        this.state.isOpen &&
+                                                        <InfoWindow className="no">
+                                                            <div>
+                                                                <p>{}</p>
+                                                                <p>{user.first_name}</p>
+                                                                <p>{user.address_line_1}{user.address_line_2}</p>
+                                                                <p>{user.city}</p>
+                                                                <p>{user.phone_number}</p>
+                                                            </div>
+                                                        </InfoWindow>
+                                                    }
+                                    </Marker> 
                             break;
                         }
                     })
