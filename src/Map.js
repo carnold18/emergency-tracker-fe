@@ -102,12 +102,11 @@ class Map extends Component {
                                                     {
                                                         this.state.isOpen &&
                                                         <InfoWindow className="no">
-                                                            <div>
-                                                                <p>{}</p>
-                                                                <p>{user.first_name}</p>
-                                                                <p>{user.address_line_1}{user.address_line_2}</p>
-                                                                <p>{user.city}</p>
-                                                                <p>{user.phone_number}</p>
+                                                            <div style={{padding:"0"}}>
+                                                                <h5>-- Deployment Center --</h5>
+                                                                <h6>{user.first_name}</h6>
+                                                                <h6>{user.address_line_1}_{user.address_line_2}</h6>
+                                                                <h6>{user.phone_number}</h6>
                                                             </div>
                                                         </InfoWindow>
                                                     }
