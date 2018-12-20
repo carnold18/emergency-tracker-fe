@@ -245,6 +245,7 @@ class AdminContainer extends Component {
     
     statusCount = () => {
 
+        let other_count = 0;
         let two_count = 0;
         let one_count = 0;
         let zero_count = 0;
@@ -256,17 +257,21 @@ class AdminContainer extends Component {
                 one_count++;
             } else if (this.state.zoneUsers.flat(Infinity)[i].status === 0) {
                 zero_count++;
+            } else if (this.state.zoneUsers.flat(Infinity)[i].status > 2) {
+                other_count++;
             } else return null;
         }
 
         console.log(`Status 0 Total:`, zero_count)
         console.log(`Status 1 Total:`, one_count)
         console.log(`Status 2 Total:`, two_count)
+        console.log(`Status 2 Total:`, other_count)
 
         this.setState({
             two_count: two_count,
             one_count: one_count,
-            zero_count: zero_count
+            zero_count: zero_count,
+            other_count: other_count
         })
     }
 
@@ -275,9 +280,9 @@ class AdminContainer extends Component {
         await this.emergencyStatusSum();
         await this.statusCount();
 
-        const zero = this.state.zero_count/this.state.statusSum*100
-        const one = this.state.one_count/this.state.statusSum*100
-        const two = this.state.two_count/this.state.statusSum*100
+        const zero = this.state.zero_count/(this.state.statusSum-this.state.other_count)*100
+        const one = this.state.one_count/(this.state.statusSum-this.state.other_count)*100
+        const two = this.state.two_count/(this.state.statusSum-this.state.other_count)*100
 
         this.setState({
             zeroPerc: zero,
