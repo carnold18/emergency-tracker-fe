@@ -25,8 +25,9 @@ class EditUserForm extends Component {
     }
     
 
-    editUser = () => {
-        fetch("https://emergency-tracker.herokuapp.com/users/"+this.state.currentUser.id, {
+    editUser = (event) => {
+        event.preventDefault();
+        fetch("https://emergency-tracker.herokuapp.com/users/"+this.props.currentUser.id, {
           method: "PATCH",
           body: JSON.stringify({
             email: this.props.currentUser.email,
@@ -53,10 +54,11 @@ class EditUserForm extends Component {
         this.setState({
           [event.target.name]: event.target.value
         })
+        console.log(event.target.value)
     }
 
     render() {
-        console.log(this.props.currentUser)
+        // console.log(this.props.currentUser)
         return (
             <div className="header">
                 <h4 className="align-center">Edit Account Information:</h4>
