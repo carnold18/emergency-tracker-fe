@@ -31,7 +31,7 @@ class UserInformation extends Component {
                         <h3>{this.props.currentUser.phone_number}</h3>
                     </div>
                     <div>
-                        <h6 id="div1">Change of Address?</h6>
+                        <h5 id="div1">Change of Address?</h5>
                         <button type="button" className="button small" onClick={this.changeEditState}>Update Account</button><br /><br />
                     </div>
                     
