@@ -161,7 +161,7 @@ class Signup extends Component {
                             : <input type="submit" className="button small special align-center" value="Click To Log In" />
                         }
                     </form>
-                    <br /><br /><a href="/login">Back to Log In!</a>
+                    <br /><a href="/login">Back to Log In!</a><br />
                 </div>
             </div>
         )
