@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 class UserTypeButton extends Component {
 
+    // in the future, this will interact with the backend to change the user's account type
+    // it will need to be approved by the admin
     submitAdminRequest = () => {
         console.log('Request Submitted')
         // fetch("https://emergency-tracker.herokuapp.com/users/"+this.state.currentUser.id, {

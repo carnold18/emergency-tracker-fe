@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Map from './Map';
-import ZipCodeSelectorNew from './ZipCodeSelectorNew';
-import NavBar from './NavBar';
-import MessagePost from './MessagePost';
-import StatsChart from './StatsChart';
+import Map from '../Map';
+import ZipCodeSelectorNew from '../ZipCodeSelectorNew';
+import NavBar from '../NavBar';
+import MessagePost from '../MessagePost';
+import StatsChart from '../StatsChart';
 // import { GEO_API_KEY } from "./Constants";
 // import config from './config.js';
 

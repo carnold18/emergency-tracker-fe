@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import Dropdown from './Dropdown';
-import UserTypeButton from './UserTypeButton';
-import ZoneMessages from './ZoneMessages';
-import UserInformation from './UserInformation';
-import NavBar from './NavBar';
-import Header from './Header';
+import Dropdown from '../components/Dropdown';
+import UserTypeButton from '../UserTypeButton';
+import ZoneMessages from '../ZoneMessages';
+import UserInformation from '../UserInformation';
+import NavBar from '../NavBar';
+import Header from '../Header';
 
 class UserContainer extends Component {
 

@@ -3,18 +3,6 @@ import Checkbox from './Checkbox';
 import './App.css';
 
 export default class ZipCodeSelectorNew extends Component {
-  // constructor() {
-  //   super();
-    
-  //   this.state = {
-  //     // showMenu: false,
-  //     selectedValue: undefined,
-  //     radioOptions: this.props.zipCodes
-  //   }
-
-  //   // this.showMenu = this.showMenu.bind(this);
-  //   // this.closeMenu = this.closeMenu.bind(this);
-  // }
 
   constructor(props) {
       super(props);
@@ -61,3 +49,20 @@ export default class ZipCodeSelectorNew extends Component {
     );
   }
 }
+
+
+
+// previous version of my component constructor
+
+// constructor() {
+  //   super();
+    
+  //   this.state = {
+  //     // showMenu: false,
+  //     selectedValue: undefined,
+  //     radioOptions: this.props.zipCodes
+  //   }
+
+  //   // this.showMenu = this.showMenu.bind(this);
+  //   // this.closeMenu = this.closeMenu.bind(this);
+  // }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import red from './red-circle-64.png';
-import green from './green-circle-64.png';
-import yellow from './yellow-circle-64.png';
+import red from '../assets/red-circle-64.png';
+import green from '../assets/green-circle-64.png';
+import yellow from '../assets/yellow-circle-64.png';
 
 class ZoneMessages extends Component {
 
