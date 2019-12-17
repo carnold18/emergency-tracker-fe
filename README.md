@@ -7,7 +7,7 @@
     - *User* --> can create an account with a designated home address and can see all local (zip-code specific) emergency messages
     - *Admin* --> can access an entire region of statistics based on zip code
  - This application uses the following technologies:
-    - Google Maps API (GeoCode)
+    - Google Cloud Platform API (GeoCode, JavaScript Maps)
     - React.js
     - Google Charts
     - SCSS
