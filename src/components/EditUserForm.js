@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BACKEND_URL } from '../Constants';
 
 class EditUserForm extends Component {
 
@@ -27,7 +28,8 @@ class EditUserForm extends Component {
 
     editUser = (event) => {
         event.preventDefault();
-        fetch("https://emergency-tracker.herokuapp.com/users/"+this.props.currentUser.id, {
+        // fetch("https://emergency-tracker.herokuapp.com/users/"+this.props.currentUser.id, {
+        fetch(BACKEND_URL+this.props.currentUser.id, {
           method: "PATCH",
           body: JSON.stringify({
             email: this.props.currentUser.email,

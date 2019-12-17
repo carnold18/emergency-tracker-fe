@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BACKEND_URL } from '../Constants';
 
 class MessagePost extends Component {
 
@@ -35,7 +36,8 @@ class MessagePost extends Component {
         console.log(this.state.zoneIds)
         
         for (let i = 0; i < this.state.zoneIds.length; i++) {
-            fetch("https://emergency-tracker.herokuapp.com/posts", {
+            // fetch("https://emergency-tracker.herokuapp.com/posts", {
+                fetch(BACKEND_URL+"posts", {
                 method: "POST",
                 body: JSON.stringify({
                     message: this.state.message,

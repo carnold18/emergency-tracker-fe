@@ -4,6 +4,7 @@ import ZipCodeSelectorNew from '../components/ZipCodeSelectorNew';
 import NavBar from '../components/NavBar';
 import MessagePost from '../components/MessagePost';
 import StatsChart from '../components/StatsChart';
+import { BACKEND_URL } from '../Constants';
 // import { GEO_API_KEY } from "./Constants";
 // import config from './config.js';
 
@@ -76,7 +77,9 @@ class AdminContainer extends Component {
     createUserZone = () => {
         console.log(this.props.currentUser.id)
         console.log(this.state.userZones[0].id)
-        fetch("https://emergency-tracker.herokuapp.com/user_zones", {
+        console.log("BACKEND_URL: ", BACKEND_URL+"user_zones")
+        // fetch("https://emergency-tracker.herokuapp.com/user_zones", {
+        fetch(BACKEND_URL+"user_zones", {
                 method: "POST",
                 body: JSON.stringify({
                     user_id: this.props.currentUser.id,
@@ -103,7 +106,8 @@ class AdminContainer extends Component {
 
         console.log(`Current Zone List:`, currentZones)
 
-            fetch("https://emergency-tracker.herokuapp.com/zoneUsers", {
+            // fetch("https://emergency-tracker.herokuapp.com/zoneUsers", {
+            fetch(BACKEND_URL+"zoneUsers", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

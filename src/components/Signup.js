@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BACKEND_URL, GEO_API_KEY } from '../Constants';
 // import config from './config.js';
 
 class Signup extends Component {
@@ -37,6 +38,7 @@ class Signup extends Component {
         
         console.log(address)
         console.log(API_KEY)
+        console.log(GEO_API_KEY)
         console.log(URL)
 
         await fetch(URL)
@@ -63,7 +65,8 @@ class Signup extends Component {
 
         console.log(zone)
 
-        fetch("https://emergency-tracker.herokuapp.com/users", {
+        // fetch("https://emergency-tracker.herokuapp.com/users", {
+        fetch(BACKEND_URL+"users", {
           method: "POST",
           body: JSON.stringify({
             email: this.state.email,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import { BACKEND_URL } from '../Constants';
 
 class ZipCodeSelector extends Component {
 
@@ -31,7 +32,8 @@ class ZipCodeSelector extends Component {
         // debugger
         console.log(this.props.currentUser.id)
         console.log(this.state.userZones[0].id)
-        fetch("https://emergency-tracker.herokuapp.com/user_zones", {
+        // fetch("https://emergency-tracker.herokuapp.com/user_zones", {
+        fetch(BACKEND_URL+"user_zones", {
                 method: "POST",
                 body: JSON.stringify({
                     user_id: this.props.currentUser.id,

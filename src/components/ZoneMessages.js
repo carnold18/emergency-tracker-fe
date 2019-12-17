@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import red from '../assets/red-circle-64.png';
 import green from '../assets/green-circle-64.png';
 import yellow from '../assets/yellow-circle-64.png';
+import { BACKEND_URL } from '../Constants';
 
 class ZoneMessages extends Component {
 
@@ -12,7 +13,8 @@ class ZoneMessages extends Component {
 
     componentDidMount() {
 
-        fetch("https://emergency-tracker.herokuapp.com/posts", {
+        // fetch("https://emergency-tracker.herokuapp.com/posts", {
+        fetch(BACKEND_URL+"posts", {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${localStorage.token}`
