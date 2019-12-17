@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Checkbox from './Checkbox';
-import './App.css';
+import '../App.css';
 
 export default class ZipCodeSelectorNew extends Component {
 

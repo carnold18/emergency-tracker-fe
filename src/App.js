@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import LoginForm from './LoginForm';
-import UserContainer from './UserContainer';
-import AdminContainer from './AdminContainer';
+import LoginForm from './components/LoginForm';
+import UserContainer from './containers/UserContainer';
+import AdminContainer from './containers/AdminContainer';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import Signup from './Signup';
-import Header from './Header';
+import Signup from './components/Signup';
+import Header from './components/Header';
 import dotenv from 'dotenv';
 
 class App extends Component {

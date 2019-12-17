@@ -1,6 +1,6 @@
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import React, { Component } from 'react';
-import info from './info-24.png';
+import info from '../assets/info-24.png';
 
 class Map extends Component {
 
