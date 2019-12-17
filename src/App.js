@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import LoginForm from './LoginForm';
-import UserContainer from './UserContainer';
-import AdminContainer from './AdminContainer';
+import LoginForm from './components/LoginForm';
+import UserContainer from './containers/UserContainer';
+import AdminContainer from './containers/AdminContainer';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import Signup from './Signup';
-import Header from './Header';
+import Signup from './components/Signup';
+import Header from './components/Header';
 import dotenv from 'dotenv';
+import { BACKEND_URL } from './Constants';
 
 class App extends Component {
 
@@ -28,7 +29,8 @@ class App extends Component {
   fetchData(){
     console.log("2")
     return Promise.all([
-      fetch("https://emergency-tracker.herokuapp.com/profile", {
+      // fetch("https://emergency-tracker.herokuapp.com/profile", {
+      fetch(BACKEND_URL+"/profile", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${localStorage.token}`
@@ -43,7 +45,8 @@ class App extends Component {
           }
       }),
 
-      fetch("https://emergency-tracker.herokuapp.com/zones", {
+      // fetch("https://emergency-tracker.herokuapp.com/zones", {
+      fetch(BACKEND_URL+"zones", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${localStorage.token}`
@@ -73,7 +76,8 @@ class App extends Component {
     // console.log(this.state.password)
     // console.log("3")
     
-    fetch("https://emergency-tracker.herokuapp.com/login", {
+    // fetch("https://emergency-tracker.herokuapp.com/login", {
+    fetch(BACKEND_URL+"login", {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,
@@ -117,7 +121,8 @@ class App extends Component {
 
   changeStatus0 = () => {
     // console.log(this.state.currentUser.id)
-    fetch("https://emergency-tracker.herokuapp.com/users/"+this.state.currentUser.id, {
+    // fetch("https://emergency-tracker.herokuapp.com/users/"+this.state.currentUser.id, {
+    fetch(BACKEND_URL+"users/"+this.state.currentUser.id, {
       method: "PATCH",
       body: JSON.stringify({
         status: 0
@@ -137,7 +142,8 @@ class App extends Component {
   }
 
   changeStatus1 = () => {
-    fetch("https://emergency-tracker.herokuapp.com/users/"+this.state.currentUser.id, {
+    // fetch("https://emergency-tracker.herokuapp.com/users/"+this.state.currentUser.id, {
+    fetch(BACKEND_URL+"users/"+this.state.currentUser.id, {
       method: "PATCH",
       body: JSON.stringify({
         status: 1
@@ -157,7 +163,8 @@ class App extends Component {
   }
 
   changeStatus2 = () => {
-    fetch("https://emergency-tracker.herokuapp.com/users/"+this.state.currentUser.id, {
+    // fetch("https://emergency-tracker.herokuapp.com/users/"+this.state.currentUser.id, {
+    fetch(BACKEND_URL+"users/"+this.state.currentUser.id, {
       method: "PATCH",
       body: JSON.stringify({
         status: 2
